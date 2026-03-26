@@ -1,10 +1,16 @@
+# Open SRE — Build Your Own AI SRE Agents 
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Tracer-Cloud/open-sre-agent/main/app/icons/BannerGithub.png" alt="Tracer Banner" width="100%">
 </p>
 <meta name="google-site-verification" content="05niXvrQUSPCpucsCP7t1loNt_Kke3N9i6QIJ_0Gcg8" />
 <meta name="google-site-verification" content="I3aNPV9RpFv0aanmy5B22oKjsZ9PCamozvrggjFQJq8" />
 <p align="center">
-  Open-source SRE agent for automated incident investigation and root cause analysis. Automatically analyzes alerts from Slack, Grafana, Datadog, and other tooling.
+  An open-source framework so you can build AI-powered SRE agents that automate incident investigation and root cause analysis. 
+    <br /><br />
+  Plug in your own alerting sources — Slack, Grafana, Datadog, PagerDuty, and more — and compose custom workflows tailored to your infrastructure.
+
+
 </p>
 
 <p align="center">
