@@ -141,24 +141,10 @@ Thanks goes to these amazing people:
 	<tbody>
 		<tr>
             <td align="center">
-                <a href="https://github.com/jellithorpe">
-                    <img src="https://avatars.githubusercontent.com/u/506082?v=4" width="100;" alt="jellithorpe"/>
+                <a href="https://github.com/davincios">
+                    <img src="https://avatars.githubusercontent.com/u/33206282?v=4" width="100;" alt="davincios"/>
                     <br />
-                    <sub><b>John Ellithorpe</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/ayushsinghal90">
-                    <img src="https://avatars.githubusercontent.com/u/35574860?v=4" width="100;" alt="ayushsinghal90"/>
-                    <br />
-                    <sub><b>Ayush Singhal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/w3joe">
-                    <img src="https://avatars.githubusercontent.com/u/84664178?v=4" width="100;" alt="w3joe"/>
-                    <br />
-                    <sub><b>Tan Wee Joe</b></sub>
+                    <sub><b>vincenthus</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -169,10 +155,24 @@ Thanks goes to these amazing people:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Maame-codes">
-                    <img src="https://avatars.githubusercontent.com/u/98717263?v=4" width="100;" alt="Maame-codes"/>
+                <a href="https://github.com/aliya-tracer">
+                    <img src="https://avatars.githubusercontent.com/u/233726347?v=4" width="100;" alt="aliya-tracer"/>
                     <br />
-                    <sub><b>Maame Afua A.P Fordjour</b></sub>
+                    <sub><b>aliya-tracer</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/arnetracer">
+                    <img src="https://avatars.githubusercontent.com/u/203629234?v=4" width="100;" alt="arnetracer"/>
+                    <br />
+                    <sub><b>arnetracer</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/kylie-tracer">
+                    <img src="https://avatars.githubusercontent.com/u/256781109?v=4" width="100;" alt="kylie-tracer"/>
+                    <br />
+                    <sub><b>kylie-tracer</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -185,38 +185,10 @@ Thanks goes to these amazing people:
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/aliya-tracer">
-                    <img src="https://avatars.githubusercontent.com/u/233726347?v=4" width="100;" alt="aliya-tracer"/>
+                <a href="https://github.com/w3joe">
+                    <img src="https://avatars.githubusercontent.com/u/84664178?v=4" width="100;" alt="w3joe"/>
                     <br />
-                    <sub><b>aliya-tracer</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/kylie-tracer">
-                    <img src="https://avatars.githubusercontent.com/u/256781109?v=4" width="100;" alt="kylie-tracer"/>
-                    <br />
-                    <sub><b>kylie-tracer</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Gust-svg">
-                    <img src="https://avatars.githubusercontent.com/u/265007695?v=4" width="100;" alt="Gust-svg"/>
-                    <br />
-                    <sub><b>Gust-svg</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/davincios">
-                    <img src="https://avatars.githubusercontent.com/u/33206282?v=4" width="100;" alt="davincios"/>
-                    <br />
-                    <sub><b>vincenthus</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/arnetracer">
-                    <img src="https://avatars.githubusercontent.com/u/203629234?v=4" width="100;" alt="arnetracer"/>
-                    <br />
-                    <sub><b>arnetracer</b></sub>
+                    <sub><b>Tan Wee Joe</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -226,8 +198,6 @@ Thanks goes to these amazing people:
                     <sub><b>Kalio</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/yeoreums">
                     <img src="https://avatars.githubusercontent.com/u/62932875?v=4" width="100;" alt="yeoreums"/>
