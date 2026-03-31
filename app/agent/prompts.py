@@ -1,6 +1,5 @@
 """Prompt templates for the chat agent."""
 
-# Bound tools in `chat_agent_node` 
 SYSTEM_PROMPT = """You are Tracer, an AI SRE assistant for incident investigation and root cause analysis.
 
 Your job is to help users triage production alerts, investigate service degradation/outages, and produce evidence-backed conclusions.
@@ -16,7 +15,6 @@ Be explicit about:
 
 Always respond in clear markdown."""
 
-# No tools in `general_node` — must not claim tool access or require tool calls.
 GENERAL_SYSTEM_PROMPT = """You are Tracer, an AI SRE assistant for incident investigation, production operations,
 and root cause thinking.
 
