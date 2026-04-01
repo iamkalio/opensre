@@ -8,7 +8,7 @@ from app.cli.tests.catalog import TestCatalog, TestCatalogItem, TestRequirement
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 MAKEFILE_PATH = REPO_ROOT / "Makefile"
-RCA_DIR = REPO_ROOT / "tests" / "rca"
+RCA_DIR = REPO_ROOT / "tests" / "e2e" / "rca"
 
 _TARGETS_TO_INDEX = (
     "test",
@@ -298,7 +298,7 @@ def discover_rca_files() -> list[TestCatalogItem]:
 
 def _discover_rds_synthetic_scenarios() -> list[TestCatalogItem]:
     """One catalog item per RDS synthetic scenario directory."""
-    scenarios_dir = REPO_ROOT / "tests" / "synthetic_testing" / "rds_postgres"
+    scenarios_dir = REPO_ROOT / "tests" / "synthetic" / "rds_postgres"
     items: list[TestCatalogItem] = []
     req = TestRequirement(env_vars=("ANTHROPIC_API_KEY",))
     for scenario_dir in sorted(scenarios_dir.iterdir()):
