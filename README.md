@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <img width="2136" height="476" alt="github-readme-tracer-banner" src="https://github.com/user-attachments/assets/fac67ac2-e40e-4d58-8421-829ed0ce2a4d" />
+  <img width="2136" height="476" alt="opensre-github-banner" src="https://github.com/user-attachments/assets/68ac81ff-dca0-45fb-9b92-9cc342f173f6" />
 </p>
 
 <h1>OpenSRE: Build Your Own AI SRE Agents</h1>
@@ -167,8 +167,8 @@ OpenSRE connects to 40+ tools and services across the modern cloud stack, from L
 Tracer is community-built. Every integration, improvement, and bug fix makes it better for thousands of engineers. We actively review PRs and welcome contributors of all experience levels.
 
 <p>
-  <a href="https://join.slack.com/share/enQtMTA4NTIyNjEwOTczNDgtODMzN2QyMGZhMjljZDJhMzAwNDg1YTc4ZTA0MjBkY2U5YTFhNTJjZmIyM2ViNGY1Y2I5MGMyMDRmOGFhMjM2Nw">
-    <img src="https://img.shields.io/badge/Join%20our%20Community%20Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white" alt="Join our Community Slack" />
+  <a href="https://discord.gg/7NTpevXf7w">
+    <img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join our Discord" />
   </a>
 </p>
 
