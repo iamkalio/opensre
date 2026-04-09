@@ -1,7 +1,7 @@
 <div align="center">
 
 <p align="center">
-  <img src="docs/logo/opensre-logomark-full.svg" alt="OpenSRE" />
+  <img src="docs/logo/opensre-logomark-full.svg" alt="OpenSRE" width="400" />
 </p>
 
 <h1>OpenSRE: Build Your Own AI SRE Agents</h1>
