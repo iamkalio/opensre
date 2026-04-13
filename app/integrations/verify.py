@@ -305,7 +305,9 @@ def resolve_effective_integrations() -> dict[str, dict[str, Any]]:
                 "source": "local env",
                 "config": {
                     "host": mariadb_host,
-                    "port": int(os.getenv("MARIADB_PORT", "3306").strip() or "3306") if os.getenv("MARIADB_PORT", "3306").strip().isdigit() else 3306,
+                    "port": int(os.getenv("MARIADB_PORT", "3306").strip() or "3306")
+                    if os.getenv("MARIADB_PORT", "3306").strip().isdigit()
+                    else 3306,
                     "database": mariadb_database,
                     "username": os.getenv("MARIADB_USERNAME", "").strip(),
                     "password": os.getenv("MARIADB_PASSWORD", "").strip(),
@@ -456,7 +458,8 @@ def resolve_effective_integrations() -> dict[str, dict[str, Any]]:
                     "bot_token": discord_bot_token,
                     "application_id": os.getenv("DISCORD_APPLICATION_ID", "").strip(),
                     "public_key": os.getenv("DISCORD_PUBLIC_KEY", "").strip(),
-                    "default_channel_id": os.getenv("DISCORD_DEFAULT_CHANNEL_ID", "").strip() or None,
+                    "default_channel_id": os.getenv("DISCORD_DEFAULT_CHANNEL_ID", "").strip()
+                    or None,
                 },
             }
 

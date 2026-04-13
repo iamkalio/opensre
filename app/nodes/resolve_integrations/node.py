@@ -297,14 +297,16 @@ def _classify_integrations(
 
         elif key == "mariadb":
             try:
-                mariadb_config = build_mariadb_config({
-                    "host": credentials.get("host", ""),
-                    "port": credentials.get("port", 3306),
-                    "database": credentials.get("database", ""),
-                    "username": credentials.get("username", ""),
-                    "password": credentials.get("password", ""),
-                    "ssl": credentials.get("ssl", True),
-                })
+                mariadb_config = build_mariadb_config(
+                    {
+                        "host": credentials.get("host", ""),
+                        "port": credentials.get("port", 3306),
+                        "database": credentials.get("database", ""),
+                        "username": credentials.get("username", ""),
+                        "password": credentials.get("password", ""),
+                        "ssl": credentials.get("ssl", True),
+                    }
+                )
             except Exception:
                 continue
 
@@ -350,12 +352,14 @@ def _classify_integrations(
 
         elif key == "discord":
             try:
-                discord_config = DiscordBotConfig.model_validate({
-                    "bot_token": credentials.get("bot_token", ""),
-                    "application_id": credentials.get("application_id", ""),
-                    "public_key": credentials.get("public_key", ""),
-                    "default_channel_id": credentials.get("default_channel_id"),
-                })
+                discord_config = DiscordBotConfig.model_validate(
+                    {
+                        "bot_token": credentials.get("bot_token", ""),
+                        "application_id": credentials.get("application_id", ""),
+                        "public_key": credentials.get("public_key", ""),
+                        "default_channel_id": credentials.get("default_channel_id"),
+                    }
+                )
             except Exception:
                 continue
             if discord_config.bot_token:
@@ -667,18 +671,22 @@ def _load_env_integrations() -> list[dict[str, Any]]:
 
     discord_bot_token = os.getenv("DISCORD_BOT_TOKEN", "").strip()
     if discord_bot_token:
-        discord_config = DiscordBotConfig.model_validate({
-            "bot_token": discord_bot_token,
-            "application_id": os.getenv("DISCORD_APPLICATION_ID", "").strip(),
-            "public_key": os.getenv("DISCORD_PUBLIC_KEY", "").strip(),
-            "default_channel_id": os.getenv("DISCORD_DEFAULT_CHANNEL_ID", "").strip() or None,
-        })
-        integrations.append({
-            "id": "env-discord",
-            "service": "discord",
-            "status": "active",
-            "credentials": discord_config.model_dump(),
-        })
+        discord_config = DiscordBotConfig.model_validate(
+            {
+                "bot_token": discord_bot_token,
+                "application_id": os.getenv("DISCORD_APPLICATION_ID", "").strip(),
+                "public_key": os.getenv("DISCORD_PUBLIC_KEY", "").strip(),
+                "default_channel_id": os.getenv("DISCORD_DEFAULT_CHANNEL_ID", "").strip() or None,
+            }
+        )
+        integrations.append(
+            {
+                "id": "env-discord",
+                "service": "discord",
+                "status": "active",
+                "credentials": discord_config.model_dump(),
+            }
+        )
 
     atlas_pub = os.getenv("MONGODB_ATLAS_PUBLIC_KEY", "").strip()
     atlas_priv = os.getenv("MONGODB_ATLAS_PRIVATE_KEY", "").strip()
@@ -707,20 +715,24 @@ def _load_env_integrations() -> list[dict[str, Any]]:
     mariadb_database = os.getenv("MARIADB_DATABASE", "").strip()
     if mariadb_host and mariadb_database:
         try:
-            mariadb_config = build_mariadb_config({
-                "host": mariadb_host,
-                "port": os.getenv("MARIADB_PORT", "3306").strip(),
-                "database": mariadb_database,
-                "username": os.getenv("MARIADB_USERNAME", "").strip(),
-                "password": os.getenv("MARIADB_PASSWORD", "").strip(),
-                "ssl": os.getenv("MARIADB_SSL", "true").strip().lower() in ("true", "1", "yes"),
-            })
-            integrations.append({
-                "id": "env-mariadb",
-                "service": "mariadb",
-                "status": "active",
-                "credentials": mariadb_config.model_dump(exclude={"integration_id"}),
-            })
+            mariadb_config = build_mariadb_config(
+                {
+                    "host": mariadb_host,
+                    "port": os.getenv("MARIADB_PORT", "3306").strip(),
+                    "database": mariadb_database,
+                    "username": os.getenv("MARIADB_USERNAME", "").strip(),
+                    "password": os.getenv("MARIADB_PASSWORD", "").strip(),
+                    "ssl": os.getenv("MARIADB_SSL", "true").strip().lower() in ("true", "1", "yes"),
+                }
+            )
+            integrations.append(
+                {
+                    "id": "env-mariadb",
+                    "service": "mariadb",
+                    "status": "active",
+                    "credentials": mariadb_config.model_dump(exclude={"integration_id"}),
+                }
+            )
         except Exception:
             logger.debug("Failed to load MariaDB config from env", exc_info=True)
 
