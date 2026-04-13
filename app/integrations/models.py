@@ -228,6 +228,7 @@ class PostgreSQLIntegrationConfig(StrictConfigModel):
         normalized = str(value or "prefer").strip()
         return normalized or "prefer"
 
+
 class MariaDBIntegrationConfig(StrictConfigModel):
     """Normalized MariaDB credentials used by resolution and verification flows."""
 
@@ -346,12 +347,13 @@ class PrefectIntegrationConfig(StrictConfigModel):
     def _normalize_str(cls, value: object) -> str:
         return str(value or "").strip()
 
+
 class DiscordBotConfig(StrictConfigModel):
     """Discord runtime config."""
 
-    bot_token: str          # Bot token for API calls
+    bot_token: str  # Bot token for API calls
     application_id: str = ""  # For slash command registration (required for inbound only)
-    public_key: str = ""      # For signature verification (required for inbound only)
+    public_key: str = ""  # For signature verification (required for inbound only)
     default_channel_id: str | None = None  # Fallback for CLI-triggered findings
 
     @field_validator("bot_token")

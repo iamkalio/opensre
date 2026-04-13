@@ -857,7 +857,11 @@ def detect_sources(
         }
 
     mariadb_int = (resolved_integrations or {}).get("mariadb")
-    if mariadb_int and str(mariadb_int.get("host", "")).strip() and str(mariadb_int.get("database", "")).strip():
+    if (
+        mariadb_int
+        and str(mariadb_int.get("host", "")).strip()
+        and str(mariadb_int.get("database", "")).strip()
+    ):
         sources["mariadb"] = {
             "host": str(mariadb_int.get("host", "")).strip(),
             "port": mariadb_int.get("port", 3306),
