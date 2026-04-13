@@ -126,6 +126,10 @@ jobs:
             target: windows-x64
             binary_name: opensre.exe
             archive_ext: zip
+          - runner: windows-11-arm
+            target: windows-arm64
+            binary_name: opensre.exe
+            archive_ext: zip
     runs-on: ${{ matrix.runner }}
     env:
       TAG_NAME: ${{ needs.prepare.outputs.tag_name }}
