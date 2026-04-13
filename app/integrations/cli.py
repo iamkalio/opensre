@@ -7,7 +7,7 @@ Usage:
     python -m app.integrations remove <service>
     python -m app.integrations verify [service] [--send-slack-test]
 
-Supported services: aws, coralogix, datadog, grafana, honeycomb, mongodb, postgresql, mongodb_atlas, slack, opensearch, rds, tracer, github, sentry, vercel
+Supported services: aws, coralogix, datadog, grafana, honeycomb, mariadb, mongodb, mongodb_atlas, postgresql, slack, opensearch, rds, tracer, github, sentry, vercel
 """
 
 from __future__ import annotations
@@ -75,6 +75,17 @@ def _p(label: str, default: str = "", secret: bool = False) -> str:
 def _die(msg: str) -> NoReturn:
     print(f"  error: {msg}", file=sys.stderr)
     sys.exit(1)
+
+
+def _parse_port(raw: str, default: int = 3306) -> int:
+    """Parse a port string, returning *default* for invalid or out-of-range values."""
+    try:
+        port = int(raw)
+    except (ValueError, TypeError):
+        return default
+    if port < 1 or port > 65535:
+        return default
+    return port
 
 
 def _mask(obj: Any) -> Any:
@@ -388,12 +399,48 @@ def _setup_mongodb_atlas() -> None:
     )
 
 
+def _setup_mariadb() -> None:
+    host = _p("Host (e.g. db.example.com)")
+    port = _p("Port", default="3306")
+    database = _p("Database name")
+    username = _p("Username")
+    password = _p("Password", secret=True)
+    ssl_choice = questionary.select(
+        "SSL enabled?",
+        choices=[
+            questionary.Choice("Yes", value="1"),
+            questionary.Choice("No", value="0"),
+        ],
+        instruction="(use arrow keys)",
+    ).ask()
+    if ssl_choice is None:
+        print("\nAborted.")
+        sys.exit(1)
+    ssl = ssl_choice == "1"
+    if not host or not database or not username:
+        _die("host, database, and username are required.")
+    upsert_integration(
+        "mariadb",
+        {
+            "credentials": {
+                "host": host,
+                "port": _parse_port(port),
+                "database": database,
+                "username": username,
+                "password": password,
+                "ssl": ssl,
+            }
+        },
+    )
+
+
 _HANDLERS: dict[str, Any] = {
     "aws": _setup_aws,
     "coralogix": _setup_coralogix,
     "datadog": _setup_datadog,
     "grafana": _setup_grafana,
     "honeycomb": _setup_honeycomb,
+    "mariadb": _setup_mariadb,
     "mongodb_atlas": _setup_mongodb_atlas,
     "slack": _setup_slack,
     "opensearch": _setup_opensearch,
