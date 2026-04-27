@@ -22,7 +22,9 @@ def _make_client() -> TestClient:
     return TestClient(app, raise_server_exceptions=False)
 
 
-def _sign_body(signing_key: SigningKey, body: bytes, timestamp: str = "1234567890") -> dict[str, str]:
+def _sign_body(
+    signing_key: SigningKey, body: bytes, timestamp: str = "1234567890"
+) -> dict[str, str]:
     """Return headers signed with the given nacl SigningKey."""
     signed = signing_key.sign(timestamp.encode() + body)
     signature = signed.signature.hex()
@@ -102,7 +104,9 @@ def test_discord_interactions_ping_returns_type_1(monkeypatch: pytest.MonkeyPatc
 # ---------------------------------------------------------------------------
 
 
-def test_discord_interactions_command_returns_deferred_type_5(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_discord_interactions_command_returns_deferred_type_5(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
     signing_key = SigningKey.generate()
     monkeypatch.setattr(
         "app.remote.server._DISCORD_PUBLIC_KEY",
@@ -173,7 +177,9 @@ async def test_run_discord_investigation_posts_followup_on_success(
     def _fake_execute(**_kw: Any) -> tuple[dict[str, Any], str, str, str]:
         return fake_result, "CPU spike", "default", "high"
 
-    def _fake_followup(app_id: str, token: str, *, embeds: list[dict[str, Any]] | None = None, **_kw: Any) -> None:
+    def _fake_followup(
+        app_id: str, token: str, *, embeds: list[dict[str, Any]] | None = None, **_kw: Any
+    ) -> None:
         posted_followups.append({"app_id": app_id, "token": token, "embeds": embeds})
 
     monkeypatch.setattr("app.remote.server._execute_investigation", _fake_execute)
@@ -205,7 +211,12 @@ async def test_run_discord_investigation_parses_plain_text_alert(
 
     def _fake_execute(**kwargs: Any) -> tuple[dict[str, Any], str, str, str]:
         captured_kwargs.update(kwargs)
-        return {"root_cause": "x", "report": "y", "is_noise": False}, "plain text alert description", "", ""
+        return (
+            {"root_cause": "x", "report": "y", "is_noise": False},
+            "plain text alert description",
+            "",
+            "",
+        )
 
     monkeypatch.setattr("app.remote.server._execute_investigation", _fake_execute)
     monkeypatch.setattr("app.remote.server._discord_post_followup", lambda *_a, **_kw: None)
@@ -266,7 +277,9 @@ async def test_run_discord_investigation_noise_uses_grey_color(
     def _fake_execute(**_kw: Any) -> tuple[dict[str, Any], str, str, str]:
         return {"root_cause": "noise", "report": "benign", "is_noise": True}, "alert", "", ""
 
-    def _fake_followup(_app_id: str, _token: str, *, embeds: list[dict[str, Any]] | None = None, **_kw: Any) -> None:
+    def _fake_followup(
+        _app_id: str, _token: str, *, embeds: list[dict[str, Any]] | None = None, **_kw: Any
+    ) -> None:
         if embeds:
             posted_embeds.extend(embeds)
 
