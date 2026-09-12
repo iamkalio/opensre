@@ -857,7 +857,11 @@ def detect_sources(
         }
 
     mariadb_int = (resolved_integrations or {}).get("mariadb")
-    if mariadb_int and str(mariadb_int.get("host", "")).strip() and str(mariadb_int.get("database", "")).strip():
+    if (
+        mariadb_int
+        and str(mariadb_int.get("host", "")).strip()
+        and str(mariadb_int.get("database", "")).strip()
+    ):
         sources["mariadb"] = {
             "host": str(mariadb_int.get("host", "")).strip(),
             "port": mariadb_int.get("port", 3306),
@@ -885,17 +889,17 @@ def detect_sources(
         }
 
     mysql_int = (resolved_integrations or {}).get("mysql")
-    if mysql_int and str(mysql_int.get("host", "")).strip() and str(mysql_int.get("database", "")).strip():
+    if (
+        mysql_int
+        and str(mysql_int.get("host", "")).strip()
+        and str(mysql_int.get("database", "")).strip()
+    ):
         mysql_host = str(mysql_int.get("host", "")).strip()
         mysql_database = str(mysql_int.get("database", "")).strip()
         mysql_database = str(
-            annotations.get("mysql_database")
-            or annotations.get("database")
-            or mysql_database
+            annotations.get("mysql_database") or annotations.get("database") or mysql_database
         ).strip()
-        mysql_table = str(
-            annotations.get("mysql_table") or annotations.get("table") or ""
-        ).strip()
+        mysql_table = str(annotations.get("mysql_table") or annotations.get("table") or "").strip()
         sources["mysql"] = {
             "host": mysql_host,
             "port": mysql_int.get("port", 3306),
