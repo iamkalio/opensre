@@ -246,16 +246,20 @@ def _map_coralogix_logs(data: dict) -> dict:
 
 def _map_diagnostic_code_result(data: dict, current_evidence: dict) -> dict:
     executions = list(current_evidence.get("diagnostic_executions", []))
-    executions.append({
-        "code": data.get("code", ""),
-        "inputs": data.get("inputs", {}),
-        "stdout": data.get("stdout", ""),
-        "stderr": data.get("stderr", ""),
-        "exit_code": data.get("exit_code"),
-        "timed_out": data.get("timed_out", False),
-        "success": data.get("success", False),
-    })
+    executions.append(
+        {
+            "code": data.get("code", ""),
+            "inputs": data.get("inputs", {}),
+            "stdout": data.get("stdout", ""),
+            "stderr": data.get("stderr", ""),
+            "exit_code": data.get("exit_code"),
+            "timed_out": data.get("timed_out", False),
+            "success": data.get("success", False),
+        }
+    )
     return {"diagnostic_executions": executions}
+
+
 def _map_vercel_deployment_status(data: dict) -> dict:
     return {
         "vercel_deployments": data.get("deployments", []),
